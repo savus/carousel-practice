@@ -1,26 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const carousels = document.querySelectorAll(".carousel-card");
-  let currentCarousel = Math.floor(Math.random() * carousels.length * 1);
-  let nextCarousel =
-    currentCarousel < carousels.length - 1 ? currentCarousel + 1 : 0;
-  let prevCarousel =
-    currentCarousel > 0 ? currentCarousel - 1 : carousels.length - 1;
 
-  const updateIndexes = (goToNum) => {
-    currentCarousel = carousels[goToNum];
-    nextCarousel =
-      currentCarousel < carousels.length - 1 ? currentCarousel + 1 : 0;
-    prevCarousel =
-      currentCarousel > 0 ? currentCarousel - 1 : carousels.length - 1;
+  const buttonContainer = document.querySelector(".btn-group");
+
+  let currentIndex = Math.floor(Math.random() * carousels.length - 1);
+  let nextIndex = currentIndex < carousels.length - 1 ? currentIndex + 1 : 0;
+  let prevIndex = currentIndex > 0 ? currentIndex - 1 : carousels.length - 1;
+
+  const goToNum = (index) => {
+    currentIndex = index;
+    nextIndex = currentIndex < carousels.length - 1 ? currentIndex + 1 : 0;
+    prevIndex = currentIndex > 0 ? currentIndex - 1 : carousels.length - 1;
+
+    carousels.forEach((carousel) =>
+      carousel.classList.remove("active", "prev", "next")
+    );
+
+    carousels[prevIndex].classList.add("prev");
+    carousels[currentIndex].classList.add("active");
+    carousels[nextIndex].classList.add("next");
   };
 
-  const goToNext = () =>
-    nextCarousel < carousels.length - 1
-      ? updateIndexes(currentCarousel + 1)
-      : updateIndexes(0);
-
-  const gotToPrev = () =>
-    nextCarousel > 0
-      ? updateIndexes(currentCarousel - 1)
-      : updateIndexes(carousels.length - 1);
+  buttonContainer.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.classList.contains("left-arrow")) {
+      currentIndex > 0
+        ? goToNum(currentIndex - 1)
+        : goToNum(carousels.length - 1);
+    } else if (target.classList.contains("right-arrow")) {
+      currentIndex < carousels.length - 1
+        ? goToNum(currentIndex + 1)
+        : goToNum(0);
+    }
+  });
 });
