@@ -3,15 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buttonContainer = document.querySelector(".btn-group");
 
-  let currentIndex = Math.floor(Math.random() * carousels.length - 1);
+  let currentIndex = Math.floor(Math.random() * carousels.length);
   let nextIndex = currentIndex < carousels.length - 1 ? currentIndex + 1 : 0;
   let prevIndex = currentIndex > 0 ? currentIndex - 1 : carousels.length - 1;
 
-  const goToNum = (index) => {
-    currentIndex = index;
-    nextIndex = currentIndex < carousels.length - 1 ? currentIndex + 1 : 0;
-    prevIndex = currentIndex > 0 ? currentIndex - 1 : carousels.length - 1;
-
+  const updateCards = () => {
     carousels.forEach((carousel) =>
       carousel.classList.remove("active", "prev", "next")
     );
@@ -19,6 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     carousels[prevIndex].classList.add("prev");
     carousels[currentIndex].classList.add("active");
     carousels[nextIndex].classList.add("next");
+  };
+
+  const goToNum = (index) => {
+    currentIndex = index;
+    nextIndex = currentIndex < carousels.length - 1 ? currentIndex + 1 : 0;
+    prevIndex = currentIndex > 0 ? currentIndex - 1 : carousels.length - 1;
+
+    updateCards();
   };
 
   buttonContainer.addEventListener("click", (e) => {
@@ -33,4 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         : goToNum(0);
     }
   });
+
+  updateCards();
 });

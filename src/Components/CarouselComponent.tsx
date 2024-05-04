@@ -1,10 +1,8 @@
-import "../src/css/main.css";
-import { CarouselComponent } from "./Components/CarouselComponent";
-
-function App() {
+import React from "react";
+export const CarouselComponent = () => {
   return (
     <>
-      <div className="carousel-container">
+      <div className="react-carousel-container">
         <div className="carousel-card prev">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil fuga
           quis nemo placeat asperiores doloribus rem corporis veritatis ex
@@ -54,6 +52,4 @@ function App() {
       </div>
     </>
   );
-}
-
-export default App;
+};

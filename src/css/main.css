@@ -1,5 +1,5 @@
-.carousel-container {
-  position: relative;
+.carousel-container,
+.react-carouse-container {
   height: 280px;
   margin: 0 auto;
   display: flex;
