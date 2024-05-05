@@ -1,5 +1,6 @@
 import "../src/css/main.css";
 import { CarouselComponent } from "./Components/CarouselComponent";
+import { IndexProvider } from "./Components/Providers/IndexProvider";
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
         <button className="left-arrow">Left</button>
         <button className="right-arrow">Right</button>
       </div>
+      <IndexProvider>
+        <CarouselComponent />
+      </IndexProvider>
     </>
   );
 }

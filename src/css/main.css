@@ -1,7 +1,7 @@
 .carousel-container,
-.react-carouse-container {
+.react-carousel-container {
   height: 280px;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
