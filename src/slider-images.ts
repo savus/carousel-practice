@@ -6,4 +6,12 @@ import Slide5 from "./assets/images/portfolio-5.jpg";
 import Slide6 from "./assets/images/portfolio-6.jpg";
 import Slide7 from "./assets/images/portfolio-7.jpg";
 
-export const sliderImages = [Slide1, Slide3, Slide4, Slide5, Slide6, Slide7];
+export const sliderImages = [
+  Slide1,
+  Slide2,
+  Slide3,
+  Slide4,
+  Slide5,
+  Slide6,
+  Slide7,
+];

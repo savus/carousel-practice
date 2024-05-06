@@ -1,8 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .image-slider-container {
-  max-width: 768px;
+  max-width: 767px;
   width: 100%;
   height: 500px;
-  margin: 200px auto;
+  margin: 100px auto;
   position: relative;
 }
 
@@ -12,29 +20,24 @@
 }
 
 .image-slider-img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 .image-slider-btn {
   all: unset;
-  display: block;
+  font-size: 3rem;
   position: absolute;
   top: 0;
   bottom: 0;
-  padding: 1rem;
-  cursor: pointer;
   transition: background-color 100ms ease-in-out;
+  cursor: pointer;
+  padding: 1rem;
+  color: white;
 }
 
 .image-slider-btn:hover {
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-.image-slider-btn i {
-  stroke: white;
-  fill: black;
-  font-size: 3rem;
 }

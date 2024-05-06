@@ -1,40 +1,38 @@
 import React, { useState } from "react";
 import "../css/image-slider.css";
 
-type TImagesSliderProps = {
+type TImageSliderProps = {
   imageUrls: string[];
 };
 
-export function ImagesSlider({ imageUrls }: TImagesSliderProps) {
-  const [imageIndex, setImageIndex] = useState(1);
-
-  function showPreviousImage() {
-    setImageIndex((index) => {
-      if (index === 0) return imageUrls.length - 1;
-      else return index - 1;
-    });
-  }
+function ImageSlider({ imageUrls }: TImageSliderProps) {
+  const [sliderIndex, setSliderIndex] = useState(0);
 
   function showNextImage() {
-    setImageIndex((index) => {
+    setSliderIndex(sliderIndex === 0 ? imageUrls.length - 1 : sliderIndex - 1);
+  }
+
+  function showPreviousImage() {
+    setSliderIndex((index) => {
       if (index === imageUrls.length - 1) return 0;
       else return index + 1;
     });
   }
+
   return (
     <div className="image-slider-container">
       <div className="image-slider">
-        <img src={imageUrls[imageIndex]} alt="" className="image-slider-img" />
+        <img src={imageUrls[sliderIndex]} alt="" className="image-slider-img" />
         <button
           onClick={showPreviousImage}
-          className="next-button image-slider-btn"
+          className="image-slider-btn button-left"
           style={{ left: 0 }}
         >
           <i className="fa-solid fa-arrow-left"></i>
         </button>
         <button
           onClick={showNextImage}
-          className="prev-button image-slider-btn"
+          className="image-slider-btn button-right"
           style={{ right: 0 }}
         >
           <i className="fa-solid fa-arrow-right"></i>
@@ -43,3 +41,5 @@ export function ImagesSlider({ imageUrls }: TImagesSliderProps) {
     </div>
   );
 }
+
+export default ImageSlider;
