@@ -1,23 +1,16 @@
 import React from "react";
 import { useIndex } from "./Providers/IndexProvider";
-export const CarouselCard = ({ slide: { id, content, name } }) => {
-  const { currentIndex, prevIndex, nextIndex } = useIndex();
-
-  const checkWhichClass = () => {
-    switch (id) {
-      case currentIndex:
-        return "active";
-      case prevIndex:
-        return "prev";
-      case nextIndex:
-        return "next";
-      default:
-        return "";
-    }
-  };
+import { TSlide } from "./CarouselComponent";
+export const CarouselCard = ({
+  slide: { id, content, name },
+  classname,
+}: {
+  slide: TSlide;
+  classname: string;
+}) => {
   return (
     <>
-      <div className={`carousel-card ${checkWhichClass}`}>
+      <div className={classname}>
         {content}
         <div className="name">{name}</div>
       </div>

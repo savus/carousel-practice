@@ -36,7 +36,8 @@
   opacity: 0.5;
 }
 
-.btn-group {
+.btn-group,
+.react-carousel-btn-group {
   display: flex;
   justify-content: center;
   gap: 40px;

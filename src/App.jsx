@@ -53,9 +53,7 @@ function App() {
         <button className="left-arrow">Left</button>
         <button className="right-arrow">Right</button>
       </div>
-      <IndexProvider>
-        <CarouselComponent />
-      </IndexProvider>
+      <CarouselComponent />
     </>
   );
 }

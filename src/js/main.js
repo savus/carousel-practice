@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const carousels = document.querySelectorAll(".carousel-card");
+  const carousels = document.querySelectorAll(
+    ".carousel-container .carousel-card"
+  );
 
   const buttonContainer = document.querySelector(".btn-group");
 
