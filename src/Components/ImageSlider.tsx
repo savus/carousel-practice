@@ -22,7 +22,7 @@ export function ImageSlider({ imageUrls }: TImageSliderProps) {
     });
   }
   return (
-    <div className="image-slider-container">
+    <div className="react-image-slider-container">
       <div className="image-slider-body">
         <div className="sliders">
           {imageUrls.map((url, index) => (

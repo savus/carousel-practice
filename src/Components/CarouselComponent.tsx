@@ -89,6 +89,7 @@ export const CarouselComponent = () => {
           const classToSelect = indexBasedClass(index);
           return (
             <CarouselCard
+              key={index}
               slide={slide}
               classname={`carousel-card ${classToSelect}`}
             />

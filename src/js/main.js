@@ -41,4 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateCards();
+
+  /* carousel */
+
+  let imageIndex = 0;
+
+  const slidersClass = ".image-slider-container .image-slider-img";
+
+  const sliders = document.querySelectorAll(slidersClass);
+  console.log(sliders);
+
+  const rightButton = document.querySelector(
+    ".image-slider-container .right-button"
+  );
+
+  const leftButton = document.querySelector(
+    ".image-slider-container .left-button"
+  );
+
+  const setActive = (element, selector) => {
+    const selectedTarget = document.querySelector(`${selector}.active`);
+    if (selectedTarget !== null) selectedTarget.classList.remove("active");
+    element.classList.add("active");
+  };
+
+  setActive(sliders[imageIndex], slidersClass);
+
+  const goToPreviousImage = () => {
+    imageIndex = imageIndex === 0 ? sliders.length - 1 : imageIndex - 1;
+    setActive(sliders[imageIndex], slidersClass);
+  };
+
+  const goToNextImage = () => {
+    imageIndex = imageIndex === sliders.length - 1 ? 0 : imageIndex + 1;
+    setActive(sliders[imageIndex], slidersClass);
+  };
+
+  rightButton.addEventListener("click", goToNextImage);
+
+  leftButton.addEventListener("click", goToPreviousImage);
 });
