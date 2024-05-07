@@ -1,7 +1,5 @@
 import "../src/css/main.css";
 import { CarouselComponent } from "./Components/CarouselComponent";
-import ImageSlider from "./Components/ImageSlider";
-import { sliderImages } from "./slider-images";
 
 function App() {
   return (
@@ -55,7 +53,6 @@ function App() {
         <button className="right-arrow">Right</button>
       </div>
       <CarouselComponent />
-      <ImageSlider imageUrls={sliderImages} />
     </>
   );
 }
