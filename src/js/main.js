@@ -44,12 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* carousel */
 
-  let imageIndex = 0;
+  let imageIndex = 3;
 
   const slidersClass = ".image-slider-container .image-slider-img";
 
   const sliders = document.querySelectorAll(slidersClass);
-  console.log(sliders);
 
   const rightButton = document.querySelector(
     ".image-slider-container .right-button"
@@ -65,16 +64,23 @@ document.addEventListener("DOMContentLoaded", () => {
     element.classList.add("active");
   };
 
-  setActive(sliders[imageIndex], slidersClass);
+  function updateSliders() {
+    sliders.forEach((slider) => {
+      slider.style.transform = `translate(${-100 * imageIndex}%)`;
+    });
+  }
+
+  //initialize sliders
+  updateSliders();
 
   const goToPreviousImage = () => {
     imageIndex = imageIndex === 0 ? sliders.length - 1 : imageIndex - 1;
-    setActive(sliders[imageIndex], slidersClass);
+    updateSliders();
   };
 
   const goToNextImage = () => {
     imageIndex = imageIndex === sliders.length - 1 ? 0 : imageIndex + 1;
-    setActive(sliders[imageIndex], slidersClass);
+    updateSliders();
   };
 
   rightButton.addEventListener("click", goToNextImage);

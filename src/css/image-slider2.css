@@ -23,12 +23,9 @@
   flex-grow: 0;
   width: 100%;
   height: 100%;
-  display: none;
-  object-fit: cover;
-}
-
-.image-slider-container .image-slider-img.active {
   display: block;
+  object-fit: cover;
+  transition: transform 300ms ease-in-out;
 }
 
 .image-slider-container .image-slider-btn {
