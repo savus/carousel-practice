@@ -44,11 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* carousel */
 
-  let imageIndex = 3;
-
   const slidersClass = ".image-slider-container .image-slider-img";
 
   const sliders = document.querySelectorAll(slidersClass);
+
+  const sliderDotsContainer = document.querySelector(".slider-dots");
+
+  const sliderDots = document.querySelectorAll(".slider-dots .fa-solid");
+
+  let imageIndex = 0;
 
   const rightButton = document.querySelector(
     ".image-slider-container .right-button"
@@ -70,20 +74,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //initialize sliders
-  updateSliders();
+  function updateDots() {
+    sliderDots.forEach((dot, index) => {
+      dot.classList.remove("fa-circle", "fa-circle-dot");
+      if (index === imageIndex) dot.classList.add("fa-circle-dot");
+      else dot.classList.add("fa-circle");
+    });
+  }
+
+  const updateAll = () => {
+    updateSliders();
+    updateDots();
+  };
 
   const goToPreviousImage = () => {
-    imageIndex = imageIndex === 0 ? sliders.length - 1 : imageIndex - 1;
-    updateSliders();
+    imageIndex = imageIndex > 0 ? imageIndex - 1 : sliders.length - 1;
+    updateAll();
   };
 
   const goToNextImage = () => {
-    imageIndex = imageIndex === sliders.length - 1 ? 0 : imageIndex + 1;
-    updateSliders();
+    imageIndex = imageIndex < sliders.length - 1 ? imageIndex + 1 : 0;
+    updateAll();
   };
 
   rightButton.addEventListener("click", goToNextImage);
 
   leftButton.addEventListener("click", goToPreviousImage);
+
+  sliderDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      imageIndex = index;
+      updateAll();
+    });
+  });
+
+  //initialize sliders and dots
+  updateAll();
 });

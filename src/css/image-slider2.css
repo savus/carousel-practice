@@ -57,6 +57,21 @@
   right: 0;
 }
 
+.image-slider-container .slider-dots {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.image-slider-container .slider-dot i {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 @keyframes squish {
   50% {
     scale: 1.4 0.6;

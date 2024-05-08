@@ -21,6 +21,29 @@ export const ImageSlider2 = () => {
         <button className="image-slider-btn right-button">
           <i className="fa-solid fa-arrow-right"></i>
         </button>
+        <ul className="slider-dots">
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="0"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="1"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="2"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="3"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="4"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="5"></i>
+          </li>
+          <li className="slider-dot">
+            <i className="fa-solid" data-index="6"></i>
+          </li>
+        </ul>
       </div>
     </div>
   );
